@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personalInfo, skills } from '../data/portfolioData';
 
 const Home = () => {
@@ -17,10 +16,22 @@ const Home = () => {
     visible: { opacity: 1, y: 0 }
   };
 
+  const scrollToSection = (sectionId) => {
+    const element = document.querySelector(sectionId);
+    if (element) {
+      const offset = 64;
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-indigo-50 to-white min-h-[calc(100vh-4rem)] flex items-center py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-indigo-50 to-white py-20 px-4 sm:px-6 lg:px-8">
         <motion.div
           className="max-w-7xl mx-auto"
           variants={containerVariants}
@@ -45,18 +56,18 @@ const Home = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4 mb-8">
-                <Link
-                  to="/projects"
+                <button
+                  onClick={() => scrollToSection('#projects')}
                   className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-200 font-medium"
                 >
                   View My Work
-                </Link>
-                <Link
-                  to="/contact"
+                </button>
+                <button
+                  onClick={() => scrollToSection('#contact')}
                   className="bg-white text-indigo-600 px-6 py-3 rounded-lg border-2 border-indigo-600 hover:bg-indigo-50 transition-colors duration-200 font-medium"
                 >
                   Get In Touch
-                </Link>
+                </button>
               </div>
 
               {/* Social Links */}

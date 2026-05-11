@@ -4,6 +4,19 @@ import { personalInfo } from '../data/portfolioData';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToSection = (e, path) => {
+    e.preventDefault();
+    const element = document.querySelector(path);
+    if (element) {
+      const offset = 64;
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -22,22 +35,38 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="#home" 
+                  onClick={(e) => scrollToSection(e, '#home')}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="/about" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="#about" 
+                  onClick={(e) => scrollToSection(e, '#about')}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   About
                 </a>
               </li>
               <li>
-                <a href="/projects" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="#projects" 
+                  onClick={(e) => scrollToSection(e, '#projects')}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Projects
                 </a>
               </li>
               <li>
-                <a href="/contact" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="#contact" 
+                  onClick={(e) => scrollToSection(e, '#contact')}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Contact
                 </a>
               </li>
