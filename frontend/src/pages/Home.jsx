@@ -106,147 +106,229 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Skills Overview */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            className="text-3xl font-bold text-center mb-12 text-gray-900"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Tech Stack
-          </motion.h2>
+{/* Skills Overview */}
+<section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+  <div className="max-w-7xl mx-auto">
+    <motion.h2
+      className="text-3xl font-bold text-center mb-12 text-gray-900"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+    >
+      Tech Stack
+    </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Languages */}
-            <motion.div
-              className="bg-gray-50 p-6 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-indigo-600">Languages</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.languages.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Frontend */}
-            <motion.div
-              className="bg-gray-50 p-6 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-indigo-600">Frontend</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.frontend.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Backend */}
-            <motion.div
-              className="bg-gray-50 p-6 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-indigo-600">Backend</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.backend.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Databases */}
-            <motion.div
-              className="bg-gray-50 p-6 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-indigo-600">Databases</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.databases.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Tools */}
-            <motion.div
-              className="bg-gray-50 p-6 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-indigo-600">Tools</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.tools.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Core CS */}
-            <motion.div
-              className="bg-gray-50 p-6 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-indigo-600">Core CS</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.coreCS.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Languages */}
+      <motion.div
+        className="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.1 }}
+      >
+        <div className="flex items-center mb-4">
+          <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+            <span className="text-2xl">💻</span>
           </div>
+          <h3 className="text-xl font-bold text-white">Languages</h3>
         </div>
-      </section>
+        <div className="flex flex-wrap gap-2">
+          <span className="bg-white/95 text-blue-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" className="w-4 h-4" />
+            JavaScript
+          </span>
+          <span className="bg-white/95 text-blue-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" className="w-4 h-4" />
+            Java
+          </span>
+          <span className="bg-white/95 text-blue-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" className="w-4 h-4" />
+            SQL
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Frontend */}
+      <motion.div
+        className="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+      >
+        <div className="flex items-center mb-4">
+          <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+            <span className="text-2xl">🎨</span>
+          </div>
+          <h3 className="text-xl font-bold text-white">Frontend</h3>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <span className="bg-white/95 text-purple-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" className="w-4 h-4" />
+            React.js
+          </span>
+          <span className="bg-white/95 text-purple-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" className="w-4 h-4" />
+            HTML5
+          </span>
+          <span className="bg-white/95 text-purple-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="" className="w-4 h-4" />
+            CSS3
+          </span>
+          <span className="bg-white/95 text-purple-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="" className="w-4 h-4" />
+            Tailwind CSS
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Backend */}
+      <motion.div
+        className="bg-gradient-to-br from-green-500 to-green-600 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3 }}
+      >
+        <div className="flex items-center mb-4">
+          <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+            <span className="text-2xl">⚙️</span>
+          </div>
+          <h3 className="text-xl font-bold text-white">Backend</h3>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <span className="bg-white/95 text-green-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" className="w-4 h-4" />
+            Node.js
+          </span>
+          <span className="bg-white/95 text-green-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="" className="w-4 h-4" />
+            Express.js
+          </span>
+          <span className="bg-white/95 text-green-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="" className="w-4 h-4" />
+            PHP
+          </span>
+          <span className="bg-white/95 text-green-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none"><text x="2" y="18" fontSize="16" fontWeight="bold" fill="currentColor">API</text></svg>
+            REST APIs
+          </span>
+          <span className="bg-white/95 text-green-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none"><text x="0" y="18" fontSize="18" fontWeight="bold" fill="currentColor">🔐</text></svg>
+            JWT Auth
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Databases */}
+      <motion.div
+        className="bg-gradient-to-br from-orange-500 to-orange-600 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+      >
+        <div className="flex items-center mb-4">
+          <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+            <span className="text-2xl">🗄️</span>
+          </div>
+          <h3 className="text-xl font-bold text-white">Databases</h3>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <span className="bg-white/95 text-orange-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="" className="w-4 h-4" />
+            MongoDB
+          </span>
+          <span className="bg-white/95 text-orange-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" className="w-4 h-4" />
+            PostgreSQL
+          </span>
+          <span className="bg-white/95 text-orange-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" className="w-4 h-4" />
+            MySQL
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Tools */}
+      <motion.div
+        className="bg-gradient-to-br from-pink-500 to-pink-600 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5 }}
+      >
+        <div className="flex items-center mb-4">
+          <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+            <span className="text-2xl">🛠️</span>
+          </div>
+          <h3 className="text-xl font-bold text-white">Tools</h3>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <span className="bg-white/95 text-pink-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" className="w-4 h-4" />
+            Git
+          </span>
+          <span className="bg-white/95 text-pink-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" className="w-4 h-4" />
+            Docker
+          </span>
+          <span className="bg-white/95 text-pink-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" alt="" className="w-4 h-4" />
+            socket.io
+          </span>
+          <span className="bg-white/95 text-pink-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none"><text x="3" y="18" fontSize="16" fontWeight="bold" fill="currentColor">V</text></svg>
+            Vercel
+          </span>
+          <span className="bg-white/95 text-pink-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none"><text x="3" y="18" fontSize="16" fontWeight="bold" fill="currentColor">R</text></svg>
+            Render
+          </span>
+          <span className="bg-white/95 text-pink-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12s4.48 10 10 10 10-4.48 10-10zm-3.97 5.53l-1.06-1.06a7.94 7.94 0 000-8.94l1.06-1.06c3.12 3.12 3.12 8.19 0 11.31z"/></svg>
+            OpenAI API
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Core CS */}
+      <motion.div
+        className="bg-gradient-to-br from-indigo-500 to-indigo-600 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.6 }}
+      >
+        <div className="flex items-center mb-4">
+          <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-3">
+            <span className="text-2xl">📚</span>
+          </div>
+          <h3 className="text-xl font-bold text-white">Core CS</h3>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <span className="bg-white/95 text-indigo-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <span className="text-base">🌲</span>
+            Data Structures
+          </span>
+          <span className="bg-white/95 text-indigo-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <span className="text-base">🔷</span>
+            OOPS
+          </span>
+          <span className="bg-white/95 text-indigo-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <span className="text-base">💾</span>
+            Operating System
+          </span>
+          <span className="bg-white/95 text-indigo-900 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
+            <span className="text-base">🌐</span>
+            Networking
+          </span>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
     </div>
   );
 };
