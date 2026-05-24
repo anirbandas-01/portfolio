@@ -7,35 +7,30 @@ const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All Projects');
   const [showAll, setShowAll] = useState(false);
 
-  // Separate featured and regular projects
   const featuredProjects = projects.filter(project => project.isFeatured);
   const regularProjects = projects.filter(project => !project.isFeatured);
 
-  // Filter projects by category
   const filterProjects = (projectList) => {
     if (activeCategory === 'All Projects') return projectList;
     return projectList.filter(project => project.category === activeCategory);
   };
 
-  // Get filtered projects
   const filteredFeatured = filterProjects(featuredProjects);
   const filteredRegular = filterProjects(regularProjects);
 
-  // Show 4 projects initially, or all if "See More" is clicked
   const visibleProjects = showAll ? filteredRegular : filteredRegular.slice(0, 4);
   const hasMoreProjects = filteredRegular.length > 4;
 
-  // Status badge colors
   const getStatusStyle = (status) => {
     switch (status) {
       case 'live':
-        return 'bg-green-100 text-green-700 border-green-300';
+        return 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-300 dark:border-green-700';
       case 'development':
-        return 'bg-yellow-100 text-yellow-700 border-yellow-300';
+        return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border-yellow-300 dark:border-yellow-700';
       case 'completed':
-        return 'bg-blue-100 text-blue-700 border-blue-300';
+        return 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-blue-300 dark:border-blue-700';
       default:
-        return 'bg-gray-100 text-gray-700 border-gray-300';
+        return 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-400 border-gray-300 dark:border-gray-700';
     }
   };
 
@@ -52,83 +47,73 @@ const Projects = () => {
     }
   };
 
-  // Project Card Component
   const ProjectCard = ({ project, isFeatured = false }) => (
     <motion.div
-      className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group ${
-        isFeatured ? 'border-2 border-indigo-200' : ''
+      className={`bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group ${
+        isFeatured ? 'border-2 border-indigo-200 dark:border-indigo-700' : ''
       }`}
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -5 }}
       layout
     >
-      {/* Featured Badge */}
       {isFeatured && (
-        <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
-          <FaStar /> Featured
+        <div className="absolute top-3 right-3 z-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg">
+          <FaStar className="text-xs" /> Featured
         </div>
       )}
 
-      {/* Project Image */}
-      <div className="relative h-56 md:h-64 overflow-hidden bg-gradient-to-br from-indigo-400 via-purple-500 to-pink-500">
-        {/* Placeholder if no image - shows gradient with icon */}
+      <div className="relative h-44 sm:h-48 overflow-hidden bg-gradient-to-br from-indigo-400 via-purple-500 to-pink-500">
         <div className="absolute inset-0 flex items-center justify-center">
-          <FaCode className="text-white text-6xl opacity-30" />
+          <FaCode className="text-white text-5xl opacity-30" />
         </div>
         
-        {/* Overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-          <div className="flex gap-4">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+          <div className="flex gap-3">
             <a
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-indigo-600 px-6 py-2.5 rounded-lg font-semibold hover:bg-indigo-50 transition-colors flex items-center gap-2 shadow-lg"
+              className="bg-white text-indigo-600 px-4 py-2 rounded-lg font-semibold hover:bg-indigo-50 transition-colors flex items-center gap-1.5 shadow-lg text-sm"
               onClick={(e) => e.stopPropagation()}
             >
-              <FaExternalLinkAlt /> View Live
+              <FaExternalLinkAlt className="text-xs" /> Live
             </a>
             <a
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gray-900 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2 shadow-lg"
+              className="bg-gray-900 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center gap-1.5 shadow-lg text-sm"
               onClick={(e) => e.stopPropagation()}
             >
-              <FaGithub /> View Code
+              <FaGithub className="text-xs" /> Code
             </a>
           </div>
         </div>
 
-        {/* Status Badge */}
-        <div className="absolute top-4 left-4">
-          <span className={`px-3 py-1.5 rounded-full text-xs font-bold border ${getStatusStyle(project.status)}`}>
+        <div className="absolute top-3 left-3">
+          <span className={`px-2.5 py-1 rounded-full text-xs font-bold border ${getStatusStyle(project.status)}`}>
             {getStatusText(project.status)}
           </span>
         </div>
       </div>
 
-      {/* Project Content */}
-      <div className="p-6">
-        {/* Title and Duration */}
-        <div className="mb-4">
-          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+      <div className="p-4 sm:p-5">
+        <div className="mb-3">
+          <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
             {project.title}
           </h3>
-          <p className="text-sm text-gray-500">{project.duration}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">{project.duration}</p>
         </div>
 
-        {/* Description */}
-        <p className="text-gray-600 mb-4 line-clamp-3">
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
           {project.description}
         </p>
 
-        {/* Technologies */}
-        <div className="mb-4">
-          <div className="flex flex-wrap gap-2">
+        <div className="mb-3">
+          <div className="flex flex-wrap gap-1.5">
             {project.technologies.map((tech, idx) => (
               <span
                 key={idx}
-                className="bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg text-xs font-semibold border border-indigo-200"
+                className="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded-md text-xs font-semibold"
               >
                 {tech}
               </span>
@@ -136,36 +121,34 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Key Features */}
-        <div className="mb-6">
-          <h4 className="text-sm font-bold text-gray-700 mb-3">Key Features:</h4>
-          <ul className="space-y-2">
+        <div className="mb-4">
+          <h4 className="text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">Key Features:</h4>
+          <ul className="space-y-1.5">
             {project.features.slice(0, 2).map((feature, idx) => (
-              <li key={idx} className="flex items-start text-sm text-gray-600">
-                <span className="text-indigo-600 mr-2 mt-0.5">✓</span>
+              <li key={idx} className="flex items-start text-xs text-gray-600 dark:text-gray-400">
+                <span className="text-indigo-600 dark:text-indigo-400 mr-2 mt-0.5">✓</span>
                 <span className="line-clamp-2">{feature}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Action Buttons - Mobile */}
-        <div className="flex gap-3 md:hidden">
+        <div className="flex gap-2 md:hidden">
           <a
             href={project.liveLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-indigo-600 text-white px-4 py-2.5 rounded-lg font-semibold hover:bg-indigo-700 transition-colors text-center flex items-center justify-center gap-2"
+            className="flex-1 bg-indigo-600 dark:bg-indigo-500 text-white px-3 py-2 rounded-lg font-semibold hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors text-center flex items-center justify-center gap-1.5 text-sm"
           >
-            <FaExternalLinkAlt className="text-sm" /> Live
+            <FaExternalLinkAlt className="text-xs" /> Live
           </a>
           <a
             href={project.githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-gray-800 text-white px-4 py-2.5 rounded-lg font-semibold hover:bg-gray-900 transition-colors text-center flex items-center justify-center gap-2"
+            className="flex-1 bg-gray-800 dark:bg-gray-700 text-white px-3 py-2 rounded-lg font-semibold hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors text-center flex items-center justify-center gap-1.5 text-sm"
           >
-            <FaGithub className="text-sm" /> Code
+            <FaGithub className="text-xs" /> Code
           </a>
         </div>
       </div>
@@ -173,23 +156,21 @@ const Projects = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
-        {/* Page Header */}
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-10 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">My Projects</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">My Projects</h1>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             A showcase of my full-stack development work, from healthcare platforms to SaaS applications
           </p>
         </motion.div>
 
-        {/* Category Filter Tabs */}
         <motion.div
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -204,35 +185,34 @@ const Projects = () => {
                 key={category}
                 onClick={() => {
                   setActiveCategory(category);
-                  setShowAll(false); // Reset to initial view when changing category
+                  setShowAll(false);
                 }}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base ${
                   activeCategory === category
                     ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg scale-105'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 shadow-sm hover:shadow-md'
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm hover:shadow-md'
                 }`}
               >
                 {category}
-                <span className="ml-2 text-xs opacity-75">({categoryProjects.length})</span>
+                <span className="ml-1.5 text-xs opacity-75">({categoryProjects.length})</span>
               </button>
             );
           })}
         </motion.div>
 
-        {/* Featured Projects Section */}
         {filteredFeatured.length > 0 && (
-          <section className="mb-16">
+          <section className="mb-12 sm:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <div className="flex items-center gap-3 mb-8">
-                <FaStar className="text-3xl text-yellow-500" />
-                <h2 className="text-3xl font-bold text-gray-900">Featured Projects</h2>
+              <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                <FaStar className="text-2xl sm:text-3xl text-yellow-500" />
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Featured Projects</h2>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                 <AnimatePresence mode="wait">
                   {filteredFeatured.map((project, index) => (
                     <motion.div
@@ -251,7 +231,6 @@ const Projects = () => {
           </section>
         )}
 
-        {/* All Projects Section */}
         {filteredRegular.length > 0 && (
           <section>
             <motion.div
@@ -259,11 +238,11 @@ const Projects = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">
                 {filteredFeatured.length > 0 ? 'More Projects' : 'All Projects'}
               </h2>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                 <AnimatePresence mode="wait">
                   {visibleProjects.map((project, index) => (
                     <motion.div
@@ -279,17 +258,16 @@ const Projects = () => {
                 </AnimatePresence>
               </div>
 
-              {/* See More / Show Less Button */}
               {hasMoreProjects && (
                 <motion.div
-                  className="text-center mt-12"
+                  className="text-center mt-10 sm:mt-12"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
                 >
                   <button
                     onClick={() => setShowAll(!showAll)}
-                    className="group bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3 mx-auto"
+                    className="group bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 sm:gap-3 mx-auto text-sm sm:text-base"
                   >
                     {showAll ? (
                       <>
@@ -309,37 +287,35 @@ const Projects = () => {
           </section>
         )}
 
-        {/* No Projects Message */}
         {filteredFeatured.length === 0 && filteredRegular.length === 0 && (
           <motion.div
             className="text-center py-16"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            <p className="text-gray-500 text-lg">No projects found in this category.</p>
+            <p className="text-gray-500 dark:text-gray-400 text-lg">No projects found in this category.</p>
           </motion.div>
         )}
 
-        {/* Call to Action */}
         <motion.div
-          className="text-center mt-16 bg-gradient-to-r from-indigo-50 to-purple-50 p-8 md:p-12 rounded-2xl"
+          className="text-center mt-12 sm:mt-16 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 p-6 sm:p-8 md:p-12 rounded-2xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
             Want to see more?
           </h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-5 sm:mb-6 max-w-2xl mx-auto">
             Visit my GitHub profile to explore more projects, contributions, and open-source work.
           </p>
           <a
             href="https://github.com/anirbandas-01"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-gray-900 text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="inline-flex items-center gap-2 sm:gap-3 bg-gray-900 dark:bg-gray-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-gray-800 dark:hover:bg-gray-600 transition-all duration-300 font-semibold text-sm sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            <FaGithub size={24} />
+            <FaGithub size={20} />
             Visit My GitHub
           </a>
         </motion.div>

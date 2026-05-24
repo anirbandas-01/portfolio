@@ -8,7 +8,7 @@ import SkillsExpertise from './pages/SkillsExpertise';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-gray-900 flex flex-col transition-colors duration-300">
       <Navbar />
       <main className="flex-grow">
         <section id="home">

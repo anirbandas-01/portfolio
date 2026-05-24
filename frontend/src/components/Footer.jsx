@@ -18,13 +18,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div>
             <h3 className="text-xl font-bold mb-4">Anirban Das</h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 dark:text-gray-500 text-sm">
               Full Stack Developer passionate about building scalable web applications
               with modern technologies.
             </p>
@@ -38,7 +38,7 @@ const Footer = () => {
                 <a 
                   href="#home" 
                   onClick={(e) => scrollToSection(e, '#home')}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-colors"
                 >
                   Home
                 </a>
@@ -47,7 +47,7 @@ const Footer = () => {
                 <a 
                   href="#about" 
                   onClick={(e) => scrollToSection(e, '#about')}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-colors"
                 >
                   About
                 </a>
@@ -56,7 +56,7 @@ const Footer = () => {
                 <a 
                   href="#projects" 
                   onClick={(e) => scrollToSection(e, '#projects')}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-colors"
                 >
                   Projects
                 </a>
@@ -65,7 +65,7 @@ const Footer = () => {
                 <a 
                   href="#contact" 
                   onClick={(e) => scrollToSection(e, '#contact')}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-colors"
                 >
                   Contact
                 </a>
@@ -81,7 +81,7 @@ const Footer = () => {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-colors"
                 aria-label="GitHub"
               >
                 <FaGithub size={24} />
@@ -90,14 +90,14 @@ const Footer = () => {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-colors"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin size={24} />
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-colors"
                 aria-label="Email"
               >
                 <FaEnvelope size={24} />
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+        <div className="border-t border-gray-800 dark:border-gray-900 mt-8 pt-8 text-center text-sm text-gray-400 dark:text-gray-500">
           <p className="flex items-center justify-center gap-2">
             © {currentYear} Anirban Das. Made with <FaHeart className="text-red-500" /> and React
           </p>
