@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: #f9f9f9;
+    --bg-secondary: #f0f0f0;
+    --text: #0f0f0f;
+    --text-muted: #555555;
+    --border: #e0e0e0;
+    --accent: #0f0f0f;
+    --accent-text: #f9f9f9;
+    --card: #ffffff;
+    --tag-bg: #ebebeb;
+    --tag-text: #333333;
+    --nav-bg: rgba(249, 249, 249, 0.85);
+  }
+
+  [data-theme="dark"] {
+    --bg: #0d0d0d;
+    --bg-secondary: #161616;
+    --text: #f0f0f0;
+    --text-muted: #888888;
+    --border: #2a2a2a;
+    --accent: #f0f0f0;
+    --accent-text: #0d0d0d;
+    --card: #141414;
+    --tag-bg: #1f1f1f;
+    --tag-text: #cccccc;
+    --nav-bg: rgba(13, 13, 13, 0.85);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background: var(--text);
+    color: var(--bg);
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  .bg-card {
+    background-color: var(--card);
+  }
+
+  .border-themed {
+    border-color: var(--border);
+  }
+
+  .bg-tag {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+  }
+
+  .btn-primary {
+    background-color: var(--accent);
+    color: var(--accent-text);
+    border: 1px solid var(--accent);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--text);
+    background-color: var(--text);
+    color: var(--bg);
+    transform: translateY(-1px);
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-family: 'IBM Plex Mono', monospace;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text);
+    transition: width 0.25s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--text);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .card-hover {
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card-hover:hover {
+    border-color: var(--text-muted);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  [data-theme="dark"] .card-hover:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .skill-bar-fill {
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .input-themed {
+    background-color: var(--bg-secondary);
+    color: var(--text);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s ease, outline 0.2s ease;
+    outline: none;
+  }
+
+  .input-themed:focus {
+    border-color: var(--text-muted);
+  }
+
+  .input-themed::placeholder {
+    color: var(--text-muted);
+  }
+}
