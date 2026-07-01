@@ -13,8 +13,8 @@ const PROJECTS = [
       'Integrated external prediction services via APIs',
       'Optimized backend with efficient database queries',
     ],
-    live: '#',
-    github: '#',
+    live: 'https://neonatal-risk-system.vercel.app/',
+    github: 'https://github.com/anirbandas-01/neonatal_risk_system',
   },
   {
     title: 'Content Automation SaaS Platform',
@@ -27,8 +27,8 @@ const PROJECTS = [
       'Integrated external AI services for content generation',
       'Optimized backend to handle high-volume requests',
     ],
-    live: '#',
-    github: '#',
+    live: 'https://quick-ai-ashy-alpha.vercel.app/',
+    github: 'https://github.com/anirbandas-01/AI-SaaS-App',
   },
   {
     title: 'Community Resource Platform',
@@ -41,8 +41,8 @@ const PROJECTS = [
       'Structured relational database schemas',
       'Optimized queries for efficient data retrieval',
     ],
-    live: '#',
-    github: '#',
+    live: 'https://community-sharing-platform.vercel.app/',
+    github: 'https://github.com/anirbandas-01/community-sharing-platform',
   },
 ]
 
@@ -90,7 +90,7 @@ export default function Projects() {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    {project.live !== '#' && (
+                    {project.live && project.live !== '#' && (
                       <a
                         href={project.live}
                         target="_blank"
@@ -101,15 +101,17 @@ export default function Projects() {
                         live
                       </a>
                     )}
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn-outline px-3 py-1.5 rounded-md font-mono text-xs flex items-center gap-1.5"
-                    >
-                      <Github size={12} />
-                      code
-                    </a>
+                    {project.github && project.github !== '#' && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-outline px-3 py-1.5 rounded-md font-mono text-xs flex items-center gap-1.5"
+                      >
+                        <Github size={12} />
+                        code
+                      </a>
+                    )}
                   </div>
                 </div>
 
