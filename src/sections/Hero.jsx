@@ -44,7 +44,8 @@ export default function Hero() {
       style={{ backgroundColor: 'var(--bg)' }}
     >
       <div className="max-w-5xl mx-auto px-6 py-20">
-        <div className="max-w-2xl">
+        <div className="flex flex-col-reverse lg:flex-row items-start lg:items-center gap-12 lg:gap-16">
+          <div className="max-w-2xl">
           {/* Label */}
           <p className="section-label mb-6">Hello, world</p>
 
@@ -107,7 +108,7 @@ export default function Hero() {
               view projects
             </a>
             <a
-              href="/Anirban_Das_Resume.pdf"
+              href="/Anirban_SDE_Resume.pdf"
               download
               className="btn-outline px-5 py-2.5 rounded-md font-mono text-sm font-medium flex items-center gap-2"
             >
@@ -141,6 +142,31 @@ export default function Hero() {
               <Linkedin size={16} />
               <span>linkedin</span>
             </a>
+          </div>
+          </div>
+
+          {/* Photo */}
+          <div className="shrink-0 mx-auto lg:mx-0">
+            <div
+              className="w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border flex items-center justify-center"
+              style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-secondary)' }}
+            >
+              <img
+                src="/profile.png"
+                alt="Anirban Das"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.style.display = 'none'
+                  e.target.nextSibling.style.display = 'flex'
+                }}
+              />
+              <div
+                className="w-full h-full hidden items-center justify-center font-mono text-sm text-center px-4"
+                style={{ color: 'var(--text-muted)', display: 'none' }}
+              >
+                Add your photo at<br /><code className="text-xs">public/profile.png</code>
+              </div>
+            </div>
           </div>
         </div>
 
