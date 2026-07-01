@@ -7,7 +7,7 @@ const CERTS = [
     issuer: 'Oracle',
     year: '2025',
     badge: 'OCI GenAI',
-    link: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=YOUR_BADGE_ID_1',
+    link: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=BF39C312472BDF185E5AB757929D30F94912B8E48C645936457AA164F41F586B',
     // Replace above with your real certificate/badge link
   },
   {
@@ -15,14 +15,14 @@ const CERTS = [
     issuer: 'Oracle',
     year: '2025',
     badge: 'OCI AI',
-    link: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=YOUR_BADGE_ID_2',
+    link: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=A75CDCC58B3665B241E18FE4FF5E3113D59EE9F1701B39652E252AF183610302',
   },
   {
     name: 'Oracle AI Vector Search Certified Professional',
     issuer: 'Oracle',
     year: '2025',
     badge: 'OCI Vector',
-    link: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=YOUR_BADGE_ID_3',
+    link: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=36C37ED76178E3DBD3AFF78CB5CCF4ABF33B4679D118D74223B90AA268462B6A',
   },
 ]
 
@@ -89,9 +89,9 @@ export default function Certifications() {
         </div>
 
         <div className="reveal mt-8">
-          <p className="font-mono text-xs" style={{ color: 'var(--text-muted)' }}>
+          {/* <p className="font-mono text-xs" style={{ color: 'var(--text-muted)' }}>
             💡 Tip: Replace the <code className="px-1 py-0.5 rounded" style={{ backgroundColor: 'var(--tag-bg)' }}>link</code> values in <code className="px-1 py-0.5 rounded" style={{ backgroundColor: 'var(--tag-bg)' }}>Certifications.jsx</code> with your real Oracle badge share URLs.
-          </p>
+          </p> */}
         </div>
       </div>
     </section>
