@@ -6,12 +6,12 @@ const PROJECTS = [
     title: 'Healthcare Risk Management Platform',
     period: 'Dec 2025 – Jan 2026',
     description:
-      'A full-stack healthcare web application for managing and analyzing patient data, with RESTful APIs for authentication, data handling, and risk evaluation workflows.',
+      'A full-stack neonatal risk assessment platform that analyzes clinical inputs and generates risk scores to help medical staff identify high-risk patients early and act faster.',
     tech: ['React.js', 'Node.js', 'MongoDB', 'REST API', 'JWT'],
     highlights: [
-      'Designed RESTful APIs for data handling and risk evaluation',
-      'Integrated external prediction services via APIs',
-      'Optimized backend with efficient database queries',
+      'Built RESTful APIs for clinical data submission and automated risk scoring',
+      'Integrated external prediction services to evaluate patient risk in real time',
+      'Optimized MongoDB queries to handle concurrent patient record lookups efficiently',
     ],
     live: 'https://neonatal-risk-system.vercel.app/',
     github: 'https://github.com/anirbandas-01/neonatal_risk_system',
@@ -20,12 +20,12 @@ const PROJECTS = [
     title: 'Content Automation SaaS Platform',
     period: 'Oct 2025 – Nov 2025',
     description:
-      'A full-stack SaaS platform for automated content generation and user workflows, built for multi-user access with AI service integrations.',
+      'A multi-user SaaS platform that generates AI-written content — blogs, captions, and marketing copy — with role-based access, usage tracking, and a clean dashboard for managing outputs.',
     tech: ['React.js', 'Node.js', 'Firebase', 'PostgreSQL', 'OpenAI API'],
     highlights: [
-      'Built scalable REST APIs with multi-user authentication',
-      'Integrated external AI services for content generation',
-      'Optimized backend to handle high-volume requests',
+      'Built scalable REST APIs with JWT auth and per-user request tracking',
+      'Integrated OpenAI API to generate structured content based on user prompts',
+      'Designed PostgreSQL schema to support multi-tenant data isolation',
     ],
     live: 'https://quick-ai-ashy-alpha.vercel.app/',
     github: 'https://github.com/anirbandas-01/AI-SaaS-App',
@@ -34,12 +34,12 @@ const PROJECTS = [
     title: 'Community Resource Platform',
     period: 'Feb 2026 – Mar 2026',
     description:
-      'A full-stack community web platform for managing and sharing local resources, built with PHP (Laravel) and MySQL.',
+      'A community-driven platform where users can post, request, and discover local resources — including food, shelter, and essential services — connecting people in need with those who can help.',
     tech: ['PHP', 'Laravel', 'MySQL', 'REST API'],
     highlights: [
-      'Designed RESTful APIs for user auth and resource posting',
-      'Structured relational database schemas',
-      'Optimized queries for efficient data retrieval',
+      'Designed RESTful APIs for resource posting, discovery, and user authentication',
+      'Built relational MySQL schemas to link users, resources, and request workflows',
+      'Optimized queries for fast resource filtering by category and location',
     ],
     live: 'https://community-sharing-platform.vercel.app/',
     github: 'https://github.com/anirbandas-01/community-sharing-platform',
@@ -70,6 +70,7 @@ export default function Projects() {
               style={{
                 backgroundColor: 'var(--card)',
                 borderColor: 'var(--border)',
+                borderLeft: '3px solid var(--border)',
                 transitionDelay: `${i * 100}ms`,
               }}
             >
@@ -119,8 +120,8 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                <div className="grid sm:grid-cols-2 gap-4 mb-5">
-                  <ul className="space-y-1.5">
+                
+                  <ul className="space-y-1.5 mb-5">
                     {project.highlights.map((h, j) => (
                       <li key={j} className="flex items-start gap-2 text-xs" style={{ color: 'var(--text-muted)' }}>
                         <span
@@ -131,7 +132,7 @@ export default function Projects() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                
 
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((t) => (
