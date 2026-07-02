@@ -44,6 +44,20 @@ const PROJECTS = [
     live: 'https://community-sharing-platform.vercel.app/',
     github: 'https://github.com/anirbandas-01/community-sharing-platform',
   },
+  {
+    title: 'AI Virtual Assistant',
+    period: '2025',
+    description:
+      'A personalized AI assistant that users can name, customize with an avatar, and chat with in natural language. Powered by Gemini API, it understands intent and responds to commands like searching Google, opening apps, fetching weather, and more.',
+    tech: ['React.js', 'Node.js', 'MongoDB', 'Gemini API', 'Cloudinary', 'JWT'],
+    highlights: [
+      'Integrated Gemini API with a structured system prompt for intent classification across 20+ command types',
+      'Built user auth with JWT and profile customization — users name their assistant and pick an avatar',
+      'Used Cloudinary for avatar image storage and Multer for file upload handling',
+    ],
+    live: 'https://virtualassistant-0n64.onrender.com',
+    github: 'https://github.com/anirbandas-01/virtualAssistant',
+  },
 ]
 
 export default function Projects() {
