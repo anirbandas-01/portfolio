@@ -97,7 +97,7 @@ export default function Skills() {
               style={{
                 backgroundColor: 'var(--card)',
                 borderColor: 'var(--border)',
-                transitionDelay: `${i * 80}ms`,
+                transitionDelay: `${i * 40}ms`,
               }}
             >
               <p className="section-label mb-4">{group.label}</p>

@@ -53,7 +53,7 @@ export default function Certifications() {
               style={{
                 backgroundColor: 'var(--card)',
                 borderColor: 'var(--border)',
-                transitionDelay: `${i * 100}ms`,
+                transitionDelay: `${i * 50}ms`,
                 textDecoration: 'none',
               }}
             >

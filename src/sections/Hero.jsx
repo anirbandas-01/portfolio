@@ -152,8 +152,13 @@ export default function Hero() {
               style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-secondary)' }}
             >
               <img
-                src="/profile.png"
+                src="/profile.webp"
                 alt="Anirban Das"
+                width={256}
+                height={256}
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   e.target.style.display = 'none'
@@ -164,7 +169,7 @@ export default function Hero() {
                 className="w-full h-full hidden items-center justify-center font-mono text-sm text-center px-4"
                 style={{ color: 'var(--text-muted)', display: 'none' }}
               >
-                Add your photo at<br /><code className="text-xs">public/profile.png</code>
+                Add your photo at<br /><code className="text-xs">public/profile.webp</code>
               </div>
             </div>
           </div>

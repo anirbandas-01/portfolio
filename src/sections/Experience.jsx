@@ -53,7 +53,7 @@ export default function Experience() {
 
           <div className="space-y-6">
             {EXPERIENCE.map((exp, i) => (
-              <div key={i} className="reveal relative sm:pl-14" style={{ transitionDelay: `${i * 100}ms` }}>
+              <div key={i} className="reveal relative sm:pl-14" style={{ transitionDelay: `${i * 50}ms` }}>
                 {/* Timeline dot */}
                 <div
                   className="absolute left-0 top-1 w-10 h-10 rounded-full items-center justify-center hidden sm:flex"

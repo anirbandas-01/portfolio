@@ -56,7 +56,7 @@ export default function College() {
                 style={{
                   backgroundColor: 'var(--card)',
                   borderColor: 'var(--border)',
-                  transitionDelay: `${i * 100}ms`,
+                  transitionDelay: `${i * 50}ms`,
                 }}
               >
                 <div className="flex items-start justify-between mb-4">

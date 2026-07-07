@@ -133,7 +133,7 @@ export default function Contact() {
           </div>
 
           {/* Right: form */}
-          <div className="reveal" style={{ transitionDelay: '100ms' }}>
+          <div className="reveal" style={{ transitionDelay: '50ms' }}>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="font-mono text-xs mb-1.5 block" style={{ color: 'var(--text-muted)' }}>

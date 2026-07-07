@@ -14,7 +14,7 @@ export function useScrollReveal() {
           observer.unobserve(entry.target)
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
     )
 
     const children = el.querySelectorAll('.reveal')

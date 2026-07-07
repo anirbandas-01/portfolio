@@ -85,7 +85,7 @@ export default function Projects() {
                 backgroundColor: 'var(--card)',
                 borderColor: 'var(--border)',
                 borderLeft: '3px solid var(--border)',
-                transitionDelay: `${i * 100}ms`,
+                transitionDelay: `${i * 50}ms`,
               }}
             >
               <div className="p-6 md:p-8">
