@@ -10,18 +10,21 @@ export function useScrollReveal() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible')
-          observer.unobserve(entry.target)
+          // Reveal every child in this section together
+          el.querySelectorAll('.reveal').forEach(child => {
+            child.classList.add('visible')
+          })
+
+          observer.disconnect()
         }
       },
-      { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
+      {
+        threshold: 0.05,
+      }
     )
 
-    const children = el.querySelectorAll('.reveal')
-    children.forEach(child => observer.observe(child))
-
-    // Also observe the parent itself if it has the class
-    if (el.classList.contains('reveal')) observer.observe(el)
+    // Observe ONLY the section container
+    observer.observe(el)
 
     return () => observer.disconnect()
   }, [])
